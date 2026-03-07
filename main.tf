@@ -6,6 +6,10 @@ data "digitalocean_ssh_key" "ynoacamino-lp" {
   name = "ynoacamino-lp"
 }
 
+data "cloudflare_zone" "main" {
+  zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
+}
+
 locals {
   nodes_flat = flatten([
     for region, config in var.nodes : [
@@ -32,4 +36,15 @@ resource "digitalocean_droplet" "nodes" {
     data.digitalocean_ssh_key.ynoacamino-pc.id,
     data.digitalocean_ssh_key.ynoacamino-lp.id
   ]
+}
+
+resource "cloudflare_dns_record" "node_dns" {
+  for_each = digitalocean_droplet.nodes
+
+  zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
+  name = each.value.name
+  type = "A"
+  content = each.value.ipv4_address
+  ttl = 1
+  proxied = false
 }

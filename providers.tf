@@ -9,6 +9,11 @@ terraform {
       source = "carlpett/sops"
       version = "1.4.0"
     }
+
+    cloudflare = {
+      source = "cloudflare/cloudflare"
+      version = "~> 5.0"
+    }
   }
   
   encryption {
@@ -31,6 +36,10 @@ terraform {
 
 provider "digitalocean" {
   token = data.sops_file.secrets.data["digitalocean_token"]
+}
+
+provider "cloudflare" {
+  api_token = data.sops_file.secrets.data["cloudflare_token"]
 }
 
 provider "sops" {}
