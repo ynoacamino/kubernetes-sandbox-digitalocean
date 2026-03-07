@@ -1,0 +1,17 @@
+digitalocean_token: ENC[AES256_GCM,data:+X9MZHWf5Jz3zeEA7WcUll9ad68ow0muxZWHKqDYmyNTyfRN3fM0GWIoag9Xky/Gsy1ICx1aVFdjTpbVFBfWC/fGrW6Et7I=,iv:lY1HprsWpufcMOLOGlk6hnmJqE4wNqf0jmboSfu5xqQ=,tag:zFMxzrM7STaF4oPKNT5tmQ==,type:str]
+passphrase: ENC[AES256_GCM,data:qgdGjORI9W9C8D2G+QUfB0Yo/LWk7Dc3T+fGzRiwLAe/8FtxZ7uyy7n95GDuNyPwIEA=,iv:8+3FkD6L4KuMCXIEL7gLQDTe0+G1z5pH4dYVIKgRifI=,tag:ZBfufCO/QYMhN9jBWywW7Q==,type:str]
+sops:
+    age:
+        - recipient: age1cs0csgzz7xtc644my5r9ee0uy8s6zx3njnymwd32g8rwcamqzges8pds9a
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3OXgrRlJ6QVJYdW8vMTFO
+            REp1UXZGWGpxSng3cDhpTDhDUnZuNFAyVUFVCkJUUGxEWmNnMnhqNXkwZkhCQ3Yz
+            aUxqZjhQN0MzTkFBWDFGbnQxdzhUMFUKLS0tIEFvQW5EYmRVOVB3amJxaGNab2M5
+            RGJUSUxFV3NkOG9FTm1CTEpjaTh4UGMKkbvbs92uVVGUWFCjwuPaNJK70Svylfi5
+            unpQUqeOX9/1SLkHMZzdNHFRcvWd8KWQ98Y0ROKW7twUyFZftR3aTA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-03-07T05:38:07Z"
+    mac: ENC[AES256_GCM,data:i9IyOvfvlzuWmAJyhCOa7a13zOIEZiu/5LCC/jfBA2+dVqw+y1ezBEI2hLFK0yA7hcjCOOGJLMe7vuVPd2UmNO+s3e3uB2pKAYW5UnmICYvBBzOHovsxrKVk5mjXTpT1kir9th1NLj7cxAqiSU6l0cA7s6ODjG96QEr0ISuYU9g=,iv:CMwIY040SPwz7qEKX8yHQJw26WZoRUN6qBqA9A1x4kI=,tag:xo0A9BYofr+io/H+v4dy0w==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.12.1

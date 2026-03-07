@@ -1,0 +1,5 @@
+creation_rules:
+  - path_regex: vault/.*\.(yaml|yml|json|env)$
+    key_groups:
+      - age:
+          - age1cs0csgzz7xtc644my5r9ee0uy8s6zx3njnymwd32g8rwcamqzges8pds9a

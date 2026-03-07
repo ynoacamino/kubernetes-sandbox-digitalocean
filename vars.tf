@@ -1,5 +1,9 @@
-variable "digitalocean_token" {
-  type      = string
+data "sops_file" "secrets" {
+  source_file = "./vault/tf.yaml"
+}
+
+variable "passphrase" {
+  type = string
   sensitive = true
 }
 
