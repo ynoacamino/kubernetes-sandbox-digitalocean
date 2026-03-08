@@ -40,7 +40,7 @@ resource "digitalocean_droplet" "nodes" {
 
 resource "cloudflare_dns_record" "vpn_dns_record" {
   zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
-  name    = "vpn-kube"
+  name    = "headscale-kube"
   type    = "A"
   content = digitalocean_droplet.nodes["nyc1-node-1"].ipv4_address
   ttl     = 1
