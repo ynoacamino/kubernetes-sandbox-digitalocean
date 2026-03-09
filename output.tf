@@ -4,7 +4,7 @@ output "node_info" {
     for key, node in digitalocean_droplet.nodes : key => {
       name   = node.name
       ip     = node.ipv4_address
-      domain = "${cloudflare_dns_record.node_dns[key].name}.${data.cloudflare_zone.main.name}"
+      domain = "${node.name}.${data.cloudflare_zone.main.name}"
     }
   }
 }
