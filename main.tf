@@ -57,3 +57,14 @@ resource "cloudflare_dns_record" "node_dns" {
   ttl = 1
   proxied = false
 }
+
+resource "cloudflare_dns_record" "cluster_dns" {
+  for_each = digitalocean_droplet.nodes
+
+  zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
+  name = "cluster"
+  type = "A"
+  content = each.value.ipv4_address
+  ttl = 1
+  proxied = false
+}
