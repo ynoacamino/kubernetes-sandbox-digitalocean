@@ -1,10 +1,6 @@
 nodes = {
-  "nyc1" = {
-    size       = "s-2vcpu-2gb"
+  "nyc3" = {
+    size       = "s-4vcpu-8gb"
     node_count = 2
-  }
-  "nyc2" = {
-    size       = "s-2vcpu-2gb"
-    node_count = 1
   }
 }
