@@ -42,7 +42,11 @@ resource "cloudflare_dns_record" "vpn_dns_record" {
   zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
   name    = "headscale-kube"
   type    = "A"
-  content = digitalocean_droplet.nodes["nyc1-node-1"].ipv4_address
+
+  content = digitalocean_droplet.nodes[
+    sort(keys(digitalocean_droplet.nodes))[0]
+  ].ipv4_address
+
   ttl     = 1
   proxied = false
 }
@@ -51,10 +55,10 @@ resource "cloudflare_dns_record" "node_dns" {
   for_each = digitalocean_droplet.nodes
 
   zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
-  name = each.value.name
-  type = "A"
+  name    = each.value.name
+  type    = "A"
   content = each.value.ipv4_address
-  ttl = 1
+  ttl     = 1
   proxied = false
 }
 
@@ -62,9 +66,9 @@ resource "cloudflare_dns_record" "cluster_dns" {
   for_each = digitalocean_droplet.nodes
 
   zone_id = data.sops_file.secrets.data["cloudflare_zone_id"]
-  name = "cluster"
-  type = "A"
+  name    = "cluster"
+  type    = "A"
   content = each.value.ipv4_address
-  ttl = 1
+  ttl     = 1
   proxied = false
 }
